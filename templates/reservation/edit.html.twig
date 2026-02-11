@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier réservation{% endblock %}
+
+{% block body %}
+<h1 class="mb-4">Modifier réservation</h1>
+
+{% for message in app.flashes('error') %}
+<div class="alert alert-danger">{{ message }}</div>
+{% endfor %}
+
+{% for message in app.flashes('success') %}
+<div class="alert alert-success">{{ message }}</div>
+{% endfor %}
+
+{{ form_start(form, {'attr': {'data-turbo': 'false'}}) }}
+
+<div class="mb-3">
+    {{ form_label(form.customerName) }}
+    {{ form_widget(form.customerName, {'attr': {'class': 'form-control'}}) }}
+    {{ form_errors(form.customerName) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.startAt) }}
+    {{ form_widget(form.startAt, {'attr': {'class': 'form-control'}}) }}
+    {{ form_errors(form.startAt) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.endAt) }}
+    {{ form_widget(form.endAt, {'attr': {'class': 'form-control'}}) }}
+    {{ form_errors(form.endAt) }}
+</div>
+
+<button type="submit" class="btn btn-primary">Mettre à jour</button>
+<a href="{{ path('app_reservation_index') }}" class="btn btn-secondary">Retour</a>
+
+{{ form_end(form) }}
+{% endblock %}

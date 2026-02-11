@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Calendrier - {{ date|date('d/m/Y') }}{% endblock %}
+
+{% block body %}
+<h1 class="mb-4">Calendrier du {{ date|date('d/m/Y') }}</h1>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Début</th>
+            <th>Fin</th>
+            <th>État</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for slot in slots %}
+        <tr>
+            <td>{{ slot.start|date('H:i') }}</td>
+            <td>{{ slot.end|date('H:i') }}</td>
+            <td>
+                {% if slot.available %}
+                <a href="{{ path('app_reservation_new', {
+                        'startAt': slot.start|date('Y-m-d\TH:i'),
+                        'endAt': slot.end|date('Y-m-d\TH:i')
+                    }) }}" class="btn btn-success btn-sm">Disponible</a>
+                {% else %}
+                <span class="badge bg-danger">Réservé</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

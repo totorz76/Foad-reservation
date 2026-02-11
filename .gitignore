@@ -1,20 +1,33 @@
 
-###> symfony/framework-bundle ###
+# Fichiers générés par Composer
+/vendor/
+
+# Fichiers générés par npm/yarn
+/node_modules/
+/build/
+
+# Cache et logs de Symfony
+/var/
+/var/log/
+/var/cache/
+
+# Secrets locaux
 /.env.local
 /.env.local.php
-/.env.*.local
-/config/secrets/prod/prod.decrypt.private.php
+/.env.test.local
+/.env.prod.local
+
+# fichiers de dump SQL temporaires
+/*.sql
+/*.sqlite
+
+# IDE / système
+/.idea/
+/*.iml
+/.vscode/
+/.DS_Store
+Thumbs.db
+
+# Debug / Profiler
 /public/bundles/
-/var/
-/vendor/
-###< symfony/framework-bundle ###
 
-###> phpunit/phpunit ###
-/phpunit.xml
-/.phpunit.cache/
-###< phpunit/phpunit ###
-
-###> symfony/asset-mapper ###
-/public/assets/
-/assets/vendor/
-###< symfony/asset-mapper ###

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}S'inscrire{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Inscription</h1>
+
+    {% for message in app.flashes('success') %}
+    <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+
+    {{ form_start(form, {'attr': {'data-turbo': 'false'}}) }}
+
+    <div class="mb-3">
+        {{ form_label(form.email) }}
+        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.email) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.plainPassword.first) }}
+        {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.plainPassword.first) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.plainPassword.second) }}
+        {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.plainPassword.second) }}
+    </div>
+
+    <button type="submit" class="btn btn-success">S'inscrire</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('app_login') }}" class="btn btn-primary mt-3">Se connecter</a>
+</div>
+{% endblock %}

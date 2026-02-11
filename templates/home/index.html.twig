@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Bienvenue sur le site de réservation</h1>
+    <p>Consultez le calendrier ou créez un compte pour réserver un créneau.</p>
+
+    <a href="{{ path('app_calendar', {'date': " now"|date("Y-m-d")}) }}" class="btn btn-info btn-lg mt-3">Voir le
+        calendrier</a>
+    <a href="{{ path('app_register') }}" class="btn btn-success btn-lg mt-3">S'inscrire</a>
+    <a href="{{ path('app_login') }}" class="btn btn-primary btn-lg mt-3">Se connecter</a>
+</div>
+{% endblock %}
